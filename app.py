@@ -7,9 +7,6 @@ import time
 import pytz
 import tzlocal
 
-import sys
-import logging
-
 def changeTime(time):
     local_timezone = tzlocal.get_localzone()
     utc_time = datetime.datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
@@ -18,9 +15,6 @@ def changeTime(time):
 
 app = Flask(__name__)
 app.secret_key = "1234abcd"
-
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
 
 @app.route("/")
 def index():
@@ -87,7 +81,7 @@ def index():
 
     datumNu = datetime.datetime(year, month, day)
 
-    locale.setlocale(locale.LC_TIME, 'sv_SE.UTF-8')
+    # locale.setlocale(locale.LC_TIME, 'sv_SE.UTF-8') FUNKAR EJ I HEROKU
 
     dag = datetime.date(year, month, day).strftime("%A")
 
