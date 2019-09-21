@@ -7,6 +7,9 @@ import time
 import pytz
 import tzlocal
 
+import sys
+import logging
+
 def changeTime(time):
     local_timezone = tzlocal.get_localzone()
     utc_time = datetime.datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
@@ -15,6 +18,9 @@ def changeTime(time):
 
 app = Flask(__name__)
 app.secret_key = "1234abcd"
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 @app.route("/")
 def index():
