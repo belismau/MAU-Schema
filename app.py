@@ -6,7 +6,6 @@ import locale
 import time
 import pytz
 import tzlocal
-import logging
 
 def changeTime(time):
     local_timezone = tzlocal.get_localzone()
@@ -16,9 +15,6 @@ def changeTime(time):
 
 app = Flask(__name__)
 app.secret_key = "1234abcd"
-
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
 
 @app.route("/")
 def index():
