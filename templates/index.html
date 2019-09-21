@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/style.css') }}">
+        <title>Informationsarkitektur 18</title>
+    </head>
+    <body>
+
+    <h2> Informationsarkitektur 18 </h2>
+
+    <div id="computer">
+
+      <table cellpadding="10px">
+      {% for saker in schema %}
+        <tr id="space">
+          <td colspan="7"></td>
+        </tr>
+        <tr id="large">
+          <td colspan="7">Vecka {{ saker[0][9] }}</td>
+        </tr>
+        <tr id="blue">
+          <th> Datum </th>
+          <th> Dag </th>
+          <th> Kursnamn </th>
+          <th> Sign </th>
+          <th> Moment </th>
+          <th> Tid </th>
+          <th> Lokal </th>
+        </tr>
+        {% for i in saker %}
+          {% if i[0] == True %}
+            <tr class="content">
+              <td width="8%"> {{ i[5] }} </td>
+              <td width="6%"> {{ i[1] }} </td>
+              <td width="28%"> {{ i[2] }} </td>
+              <td width="15%"> {{ i[3] }} </td>
+              <td> {{ i[4] }} </td>
+              <td width="10%"> {{ i[6] }} - {{ i[7] }} </td>
+              <td width="7%"> {{ i[8] }} </td>
+            </tr>
+          {% else %}
+            <tr class="content">
+              <td></td>
+              <td></td>
+              <td> {{ i[2] }} </td>
+              <td> {{ i[3] }} </td>
+              <td> {{ i[4] }} </td>
+              <td> {{ i[6] }} - {{ i[7] }} </td>
+              <td> {{ i[8] }} </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+        {% endfor %}
+      </table>
+
+    </div>
+
+    <div id="mobile">
+
+      <div id="mobilediv">
+      {% for saker in schema %}
+
+        <p> Vecka {{ saker[0][9] }} </p>
+
+        {% for i in saker %}
+          {% if i[0] == True %}
+
+            <div class="contentmobile">
+
+              <div id="flex">
+                <p> {{ i[5] }} </p>
+                <p> {{ i[1] }} </p>
+              </div>
+
+              <p id="clock"> {{ i[6] }} - {{ i[7] }} </p>
+              <p> {{ i[3] }} </p>
+              <p> {{ i[2] }} </p>
+              <p> {{ i[4] }} </p>
+              <p> {{ i[8] }} </p>
+          
+            </div>
+          {% else %}
+
+              <div class="contentmobile">
+
+                <p id="clock"> {{ i[6] }} - {{ i[7] }} </p>
+                <p> {{ i[3] }} </p>
+                <p> {{ i[2] }} </p>
+                <p> {{ i[4] }} </p>
+                <p> {{ i[8] }} </p>
+          
+              </div>
+          {% endif %}
+        {% endfor %}
+        
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </body>
+</html>
