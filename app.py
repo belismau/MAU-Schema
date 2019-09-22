@@ -6,6 +6,7 @@ import locale
 import time
 import pytz
 import tzlocal
+import html
 
 def changeTime(time):
     local_timezone = tzlocal.get_localzone()
@@ -24,7 +25,7 @@ def index():
   saker = []
 
   try:
-    g = urllib.request.urlopen('https://schema.mau.se/setup/jsp/SchemaICAL.ics?startDatum=idag&intervallTyp=m&intervallAntal=6&sprak=SV&sokMedAND=true&forklaringar=true&resurser=p.TGIAA18h', timeout=4)
+    g = urllib.request.urlopen('https://schema.mau.se/setup/jsp/SchemaICAL.ics?startDatum=idag&intervallTyp=m&intervallAntal=6&sprak=SV&sokMedAND=true&forklaringar=true&resurser=p.TGIAA18h', timeout=8)
     cal = Calendar.from_ical(g.read())
   except:
     g = open('schema.ics','rb')
@@ -42,12 +43,13 @@ def index():
     kursnamn = summary[kursnamn+10:sign]
     sign = summary[sign+6:moment]
     moment = summary[moment+8:program]
+
+    moment = html.unescape(moment)
     
     l = kursnamn.find(':')
     k = kursnamn.find(',')
 
     kursnamn = kursnamn[l+2:k]
-    
 
     ##########################################################
 
