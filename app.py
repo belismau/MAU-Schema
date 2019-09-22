@@ -81,7 +81,7 @@ def index():
 
     datumNu = datetime.datetime(year, month, day)
 
-    # locale.setlocale(locale.LC_TIME, 'sv_SE.UTF-8') FUNKAR EJ I HEROKU
+    locale.setlocale(locale.LC_TIME, 'sv_SE.UTF-8')
 
     dag = datetime.date(year, month, day).strftime("%A")
 
