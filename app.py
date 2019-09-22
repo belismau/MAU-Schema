@@ -85,6 +85,8 @@ def index():
 
     dag = datetime.date(year, month, day).strftime("%A")
 
+    dag = bigLetter(dag)
+
     currentDay = datetime.datetime.now().day
     currentMonth = datetime.datetime.now().month
     currentYear = datetime.datetime.now().year
@@ -112,6 +114,12 @@ def index():
   g.close()
   
   return render_template("index.html", schema=saker)
+
+# Krävs för Heroku
+def bigLetter(dag):
+  first = dag[0].upper()
+  second = dag[1:].lower()
+  return first + second
 
 if __name__ == '__main__':
     app.run(debug=True)
