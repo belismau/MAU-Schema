@@ -95,7 +95,7 @@ def index():
  
     dateToday = datetime.datetime(currentYear, currentMonth, currentDay)
 
-    if dateToday < datumNu:
+    if dateToday <= datumNu:
 
       if veckaStart == veckaStop or veckaStart == 0:
           if veckaStart == 0:
