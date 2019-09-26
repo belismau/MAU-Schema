@@ -7,6 +7,7 @@ import time
 import pytz
 import tzlocal
 import html
+import calendar
 
 def changeTime(time):
     local_timezone = tzlocal.get_localzone()
@@ -53,7 +54,7 @@ def index():
 
     ##########################################################
 
-    location = component.get('location')
+    location = component.get('location').split()
 
     start = str(component.get('dtstart').dt)
 
@@ -81,6 +82,8 @@ def index():
     year, month, day = (int(x) for x in datum.split('-'))    
     veckaStop = int(datetime.date(year, month, day).strftime("%V"))
 
+    monthName = calendar.month_abbr[month]
+
     datumNu = datetime.datetime(year, month, day)
 
     locale.setlocale(locale.LC_TIME, 'sv_SE.UTF-8')
@@ -99,15 +102,15 @@ def index():
 
       if veckaStart == veckaStop or veckaStart == 0:
           if veckaStart == 0:
-            veckaList.append([True, dag, kursnamn, sign, moment, datum, startTime, endTime, location, veckaStop])
+            veckaList.append([True, dag, kursnamn, sign, moment, datum, startTime, endTime, location, veckaStop, year, monthName, day])
           elif (veckaList[-1][1] == dag and veckaList[-1][5] == datum):
-            veckaList.append([False, dag, kursnamn, sign, moment, datum, startTime, endTime, location, veckaStop])
+            veckaList.append([False, dag, kursnamn, sign, moment, datum, startTime, endTime, location, veckaStop, year, monthName, day])
           else:
-            veckaList.append([True, dag, kursnamn, sign, moment, datum, startTime, endTime, location, veckaStop])
+            veckaList.append([True, dag, kursnamn, sign, moment, datum, startTime, endTime, location, veckaStop, year, monthName, day])
       else:
         saker.append(veckaList)
         veckaList = []
-        veckaList.append([True, dag, kursnamn, sign, moment, datum, startTime, endTime, location, veckaStop])
+        veckaList.append([True, dag, kursnamn, sign, moment, datum, startTime, endTime, location, veckaStop, year, monthName, day])
       
       veckaStart = veckaStop
 

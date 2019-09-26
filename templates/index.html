@@ -29,7 +29,7 @@
         {% for i in saker %}
           {% if i[0] == True %}
             <tr class="content">
-              <td width="8%"> {{ i[5] }} </td>
+              <td width="8%"> {{ i[12] }} {{ i[11] }} {{ i[10] }} </td>
               <td width="6%"> {{ i[1] }} </td>
               <td width="28%"> {{ i[2] }} </td>
               <td width="15%"> {{ i[3] }} </td>
@@ -68,14 +68,18 @@
 
               <div id="flex">
                 <p> {{ i[1] }} </p>
-                <p> {{ i[5] }} </p>
+                <p> {{ i[12] }} {{ i[11] }} {{ i[10] }} </p>
               </div>
 
               <div id="second">
                 <div id="clock_local">
                   <p> {{ i[6] }} </p>
                   <p id="clockEnd"> {{ i[7] }} </p>
-                  <p> {{ i[8] }} </p>
+                  <div id="lokaler">
+                    {% for lokal in i[8] %}
+                      <p> {{ lokal }} </p>
+                    {% endfor %}
+                  </div>
                 </div>
                 <div id="other">
                   <p> {{ i[3] }} </p>
@@ -92,8 +96,12 @@
                 <div id="second">
                 <div id="clock_local">
                   <p> {{ i[6] }} </p>
-                  <p id="clockEnd"> {{ i[7] }} </p>
-                  <p> {{ i[8] }} </p>
+                  <p id="clockEnd">{{ i[7] }}</p>
+                  <div id="lokaler">
+                    {% for lokal in i[8] %}
+                      <p> {{ lokal }} </p>
+                    {% endfor %}
+                  </div>
                 </div>
                 <div id="other">
                   <p> {{ i[3] }} </p>
