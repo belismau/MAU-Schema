@@ -22,7 +22,7 @@ body {
 }
 
 #mobilediv > p {
-  margin: 0;
+  margin: 0 0 10px 0;
   padding: 14px;
   background: #00c1ff;
   text-align: center;
@@ -49,6 +49,15 @@ body {
   color: white;
   box-shadow: none;
   padding: 0 13px 0 13px;
+  margin-bottom: 10px;
+}
+
+#clock_local > p:first-child {
+  color: #55c35f;
+}
+
+#clock_local > #clockEnd {
+  color: #c35555;
 }
 
 #second {
