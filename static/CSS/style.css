@@ -23,11 +23,10 @@ body {
 
 #mobilediv > p {
   margin: 0;
-  padding: 16px;
+  padding: 14px;
   background: #00c1ff;
   text-align: center;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
-  padding: 20px;
 }
 
 .contentmobile {
@@ -43,22 +42,42 @@ body {
 }
 
 #flex {
-  background: #62a4b9;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  background: transparent;
+  color: white;
+  box-shadow: none;
+  padding: 0 13px 0 13px;
 }
 
-#clock {
-  background: lightblue;
+#second {
+  color: white;
+  background: #424242;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 30px;
+}
+
+#second > #clock_local {
+  margin: 0 30px 0 0;
   text-align: center;
 }
 
-.contentmobile > p:nth-child(even) {
-  background-color: #dddddd;
+#second > #clock_local > p {
+  margin: 0px;
+  font-size: 20px;
+}
+
+#second > #clock_local > p:last-child {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+}
+
+#second > #other > p {
+  margin: 0;
 }
 
 table {
@@ -102,16 +121,14 @@ td, th {
   border: 1px solid #dddddd;
 }
 
-h2 {
-  text-align: center;
-  margin: 30px 0 0 0; 
-}
-
 @media screen and (max-width: 915px) {
   #computer {
     display: none;
   }
   #mobile {
     display: inline;
+  }
+  body {
+    background: #303030;
   }
 }

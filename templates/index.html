@@ -6,9 +6,6 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/style.css') }}">
         <title>Informationsarkitektur 18</title>
     </head>
-    <body>
-
-    <h2> Informationsarkitektur 18 </h2>
 
     <div id="computer">
 
@@ -70,26 +67,40 @@
             <div class="contentmobile">
 
               <div id="flex">
-                <p> {{ i[5] }} </p>
                 <p> {{ i[1] }} </p>
+                <p> {{ i[5] }} </p>
               </div>
 
-              <p id="clock"> {{ i[6] }} - {{ i[7] }} </p>
-              <p> {{ i[3] }} </p>
-              <p> {{ i[2] }} </p>
-              <p> {{ i[4] }} </p>
-              <p> {{ i[8] }} </p>
+              <div id="second">
+                <div id="clock_local">
+                  <p> {{ i[6] }} </p>
+                  <p> {{ i[7] }} </p>
+                  <p> {{ i[8] }} </p>
+                </div>
+                <div id="other">
+                  <p> {{ i[3] }} </p>
+                  <p> {{ i[2] }} </p>
+                  <p> {{ i[4] }} </p>
+                </div>
+              </div>
           
             </div>
           {% else %}
 
               <div class="contentmobile">
 
-                <p id="clock"> {{ i[6] }} - {{ i[7] }} </p>
-                <p> {{ i[3] }} </p>
-                <p> {{ i[2] }} </p>
-                <p> {{ i[4] }} </p>
-                <p> {{ i[8] }} </p>
+                <div id="second">
+                <div id="clock_local">
+                  <p> {{ i[6] }} </p>
+                  <p> {{ i[7] }} </p>
+                  <p> {{ i[8] }} </p>
+                </div>
+                <div id="other">
+                  <p> {{ i[3] }} </p>
+                  <p> {{ i[2] }} </p>
+                  <p> {{ i[4] }} </p>
+                </div>
+              </div>
           
               </div>
           {% endif %}

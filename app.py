@@ -25,7 +25,7 @@ def index():
   saker = []
 
   try:
-    g = urllib.request.urlopen('https://schema.mau.se/setup/jsp/SchemaICAL.ics?startDatum=idag&intervallTyp=m&intervallAntal=6&sprak=SV&sokMedAND=true&forklaringar=true&resurser=p.TGIAA18h', timeout=8)
+    g = urllib.request.urlopen('https://schema.mau.se/setup/jsp/SchemaICAL.ics?startDatum=idag&intervallTyp=m&intervallAntal=6&sprak=SV&sokMedAND=true&forklaringar=true&resurser=p.TGIAA18h', timeout=4)
     cal = Calendar.from_ical(g.read())
   except:
     g = open('schema.ics','rb')
