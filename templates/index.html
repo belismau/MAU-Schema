@@ -35,7 +35,11 @@
               <td width="15%"> {{ i[3] }} </td>
               <td> {{ i[4] }} </td>
               <td width="10%"> {{ i[6] }} - {{ i[7] }} </td>
-              <td width="7%"> {{ i[8] }} </td>
+              <td width="7%">
+              {% for lokal in i[8] %}
+                {{ lokal }}
+              {% endfor %}
+              </td>
             </tr>
           {% else %}
             <tr class="content">
@@ -45,7 +49,11 @@
               <td> {{ i[3] }} </td>
               <td> {{ i[4] }} </td>
               <td> {{ i[6] }} - {{ i[7] }} </td>
-              <td> {{ i[8] }} </td>
+              <td>
+              {% for lokal in i[8] %}
+                {{ lokal }}
+              {% endfor %}
+              </td>
             </tr>
           {% endif %}
         {% endfor %}
